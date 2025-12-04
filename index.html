@@ -1,75 +1,355 @@
 <!DOCTYPE html>
 <html lang="fr">
-<!-- Balises SEO -->
-<title>Stefan Ferailleur | Rachat de métaux et ferraille | Paiement cash</title>
-<meta name="description" content="Ferrailleur professionnel : rachat de cuivre, laiton, aluminium, inox, batteries, fer et autres métaux. Paiement immédiat en espèces. Contactez Stefan Ferailleur au 07 80 09 18 84.">
-<meta name="keywords" content="ferrailleur, rachat métaux, ferraille, cuivre, laiton, aluminium, inox, batterie, récupération métaux, Lyon, Rhône, Stefan Ferailleur">
-<meta name="author" content="Stefan Ferailleur">
-
-<!-- Pour Google et les réseaux -->
-<meta property="og:title" content="Stefan Ferailleur - Rachat de ferraille et métaux">
-<meta property="og:description" content="Rachat de cuivre, laiton, aluminium, inox, batteries, fer. Paiement cash. Contactez Stefan Ferailleur.">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://stefan-ferailleur.netlify.app">
-<meta property="og:image" content="https://images.unsplash.com/photo-1505489304219-85c4d47b9b6d"> <head>
+<head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Stefan Ferailleur – Rachat de ferraille et métaux</title>
-  <meta name="description" content="Rachat de ferraille et métaux : cuivre, laiton, aluminium, inox, batteries, fer. Paiement cash. Contactez Stefan Ferailleur au 07 80 09 18 84.">
+  <title>SMC – Stef Métaux Cash</title>
+
+  <!-- Icônes Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
   <style>
+    :root {
+      --primary: #0d9488;
+      --secondary: #0f766e;
+      --dark: #0f172a;
+      --light: #f1f5f9;
+      --bg: linear-gradient(135deg, #e0f7f4 0%, #f9fafb 100%);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       margin: 0;
-      padding: 0;
-      font-family: Arial, sans-serif;
-      color: white;
-      text-align: center;
-      background: url('https://images.unsplash.com/photo-1505489304219-85c4d47b9b6d') no-repeat center center fixed;
-      background-size: cover;
+      font-family: "Segoe UI", sans-serif;
+      background: var(--bg);
+      color: #222;
     }
-    .overlay {
-      background-color: rgba(0, 0, 0, 0.6);
-      min-height: 100vh;
+
+    /* ------------------------------------ */
+    /* LOGO */
+    /* ------------------------------------ */
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: white;
+    }
+
+    .logo i {
+      font-size: 2rem;
+      color: #25c799;
+      text-shadow: 0 3px 5px rgba(0,0,0,0.3);
+    }
+
+    /* ------------------------------------ */
+    /* HEADER */
+    /* ------------------------------------ */
+    header {
+      position: sticky;
+      top: 0;
+      backdrop-filter: blur(10px);
+      background: rgba(15, 23, 42, 0.85);
+      color: white;
+      padding: 18px 35px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 100;
+    }
+
+    nav {
+      display: flex;
+      gap: 25px;
+    }
+
+    nav a {
+      color: #e2e8f0;
+      text-decoration: none;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+
+    nav a:hover {
+      color: var(--primary);
+    }
+
+    /* ------------------------------------ */
+    /* MENU MOBILE */
+    /* ------------------------------------ */
+
+    .menu-btn {
+      display: none;
+      font-size: 1.8rem;
+      color: white;
+      cursor: pointer;
+    }
+
+    @media (max-width: 768px) {
+      nav {
+        display: none;
+        position: absolute;
+        top: 70px;
+        right: 0;
+        background: rgba(15, 23, 42, 0.95);
+        width: 250px;
+        flex-direction: column;
+        padding: 20px;
+        border-left: 1px solid rgba(255,255,255,0.1);
+      }
+
+      nav.show {
+        display: flex;
+      }
+
+      .menu-btn {
+        display: block;
+      }
+    }
+
+    /* ------------------------------------ */
+    /* HERO */
+    /* ------------------------------------ */
+    .hero {
+      height: 80vh;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      padding: 20px;
-    }
-    h1 {
-      font-size: 2.2rem;
-      margin-bottom: 10px;
-    }
-    p {
-      font-size: 1.1rem;
-      line-height: 1.6;
-      max-width: 600px;
-    }
-    .call-button {
-      margin-top: 20px;
-      background-color: #28a745;
+      text-align: center;
       color: white;
-      padding: 12px 24px;
+      padding: 20px;
+      background: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)),
+        url('https://images.unsplash.com/photo-1581091010180-659e8f316489?auto=format&fit=crop&w=1600&q=80') center/cover;
+    }
+
+    .hero h2 {
+      font-size: 2.8rem;
+      max-width: 90%;
+      animation: fadeDown 1s ease forwards;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      margin-top: 10px;
+      animation: fadeUp 1.2s ease forwards;
+    }
+
+    @keyframes fadeDown {
+      from { opacity:0; transform:translateY(-20px); }
+      to { opacity:1; transform:translateY(0); }
+    }
+    @keyframes fadeUp {
+      from { opacity:0; transform:translateY(20px); }
+      to { opacity:1; transform:translateY(0); }
+    }
+
+    .btn-primary {
+      margin-top: 25px;
+      padding: 14px 28px;
+      font-size: 1.2rem;
       border: none;
-      border-radius: 8px;
-      font-size: 1rem;
+      border-radius: 10px;
+      background: var(--primary);
+      color: white;
       cursor: pointer;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.25);
       text-decoration: none;
+      transition: 0.25s;
     }
-    .call-button:hover {
-      background-color: #218838;
+
+    .btn-primary:hover {
+      background: var(--secondary);
+      transform: translateY(-4px);
     }
+
+    /* ------------------------------------ */
+    /* SECTIONS */
+    /* ------------------------------------ */
+    .section {
+      padding: 70px 20px;
+      max-width: 1200px;
+      margin: auto;
+      text-align: center;
+    }
+
+    .section h2 {
+      font-size: 2.4rem;
+      margin-bottom: 40px;
+      color: var(--dark);
+      position: relative;
+      display: inline-block;
+    }
+
+    .section h2::after {
+      content: "";
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 4px;
+      background: var(--primary);
+      border-radius: 5px;
+    }
+
+    /* ------------------------------------ */
+    /* CARDS */
+    /* ------------------------------------ */
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 30px;
+    }
+
+    .card {
+      padding: 25px;
+      border-radius: 16px;
+      background: rgba(255,255,255,0.65);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+      transition: 0.3s;
+    }
+
+    .card i {
+      font-size: 2.3rem;
+      color: var(--primary);
+      margin-bottom: 15px;
+    }
+
+    .card:hover {
+      transform: translateY(-7px);
+      box-shadow: 0 12px 35px rgba(0,0,0,0.25);
+    }
+
+    /* ------------------------------------ */
+    /* CONTACT */
+    /* ------------------------------------ */
+    input, textarea {
+      width: 100%;
+      padding: 12px;
+      border-radius: 10px;
+      border: 1px solid #cbd5e1;
+      margin-bottom: 15px;
+      background: #fff;
+    }
+
+    button {
+      padding: 12px 25px;
+      border-radius: 12px;
+      border: none;
+      background: var(--primary);
+      color: white;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: var(--secondary);
+    }
+
+    /* ------------------------------------ */
+    /* FOOTER */
+    /* ------------------------------------ */
+    footer {
+      background: var(--dark);
+      color: #e2e8f0;
+      text-align: center;
+      padding: 30px;
+      margin-top: 60px;
+    }
+
   </style>
+
+  <script>
+    function toggleMenu() {
+      document.querySelector("nav").classList.toggle("show");
+    }
+  </script>
+
 </head>
+
 <body>
-  <div class="overlay">
-    <h1>Stefan Ferailleur</h1>
-    <p>Rachat de ferraille et de tous métaux : cuivre, laiton, inox, aluminium, batteries, fer et plus encore.</p>
-    <p>💰 Paiement immédiat en espèces<br>
-    📞 07 80 09 18 84<br>
-    📧 stefanursu69230@gmail.com<br>
-    📍 Intervention rapide – Déplacement possible<br>
-    Pour les prix, merci de me contacter.</p>
-    <a href="tel:+33780091884" class="call-button">📞 Appeler maintenant</a>
+
+<header>
+  <div class="logo">
+    <i class="fa-solid fa-anvil"></i>
+    SMC – Stef Métaux Cash
   </div>
+
+  <i class="fa-solid fa-bars menu-btn" onclick="toggleMenu()"></i>
+
+  <nav>
+    <a href="#services">Services</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <h2>Rachat & Recyclage de Métaux</h2>
+  <p>Cuivre, Aluminium, Inox, Ferraille — Meilleurs prix & Paiement cash</p>
+  <a href="tel:0780091884" class="btn-primary">
+    <i class="fa-solid fa-phone"></i> Appeler maintenant
+  </a>
+</section>
+
+<section id="services" class="section">
+  <h2>Nos Services</h2>
+
+  <div class="cards">
+    <div class="card">
+      <i class="fa-solid fa-coins"></i>
+      <h3>Rachat de Métaux</h3>
+      <p>Achat immédiat de métaux ferreux et non ferreux.</p>
+    </div>
+
+    <div class="card">
+      <i class="fa-solid fa-recycle"></i>
+      <h3>Recyclage Professionnel</h3>
+      <p>Traitement conforme aux normes environnementales.</p>
+    </div>
+
+    <div class="card">
+      <i class="fa-solid fa-truck"></i>
+      <h3>Collecte & Enlèvement</h3>
+      <p>Intervention rapide sur chantiers & entreprises.</p>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="section">
+  <h2>Contactez-nous</h2>
+
+  <p><i class="fa-solid fa-location-dot"></i> 152 rue Joliot Curie, Tassin-la-Demi-Lune 69160</p>
+  <p><i class="fa-solid fa-phone"></i> 0780091884</p>
+  <p><i class="fa-solid fa-envelope"></i> stefmetauxcash@gmail.com</p>
+
+  <a class="btn-primary" href="https://www.google.com/maps/dir/?api=1&destination=152+Rue+Joliot+Curie+Tassin-la-Demi-Lune">
+    <i class="fa-solid fa-map"></i> Itinéraire Google Maps
+  </a>
+
+  <form>
+    <label>Nom :</label>
+    <input type="text" placeholder="Votre nom">
+
+    <label>Téléphone :</label>
+    <input type="text" placeholder="Votre numéro">
+
+    <label>Message :</label>
+    <textarea rows="5" placeholder="Votre message..."></textarea>
+
+    <button><i class="fa-solid fa-paper-plane"></i> Envoyer</button>
+  </form>
+</section>
+
+<footer>
+  © 2025 SMC – Stef Métaux Cash. Tous droits réservés.
+</footer>
+
 </body>
 </html>
